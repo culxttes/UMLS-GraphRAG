@@ -20,20 +20,20 @@ class OpenAI(LLM):
 
     def __init__(
         self,
-        host: Optional[str],
         api_key: str,
         model: str,
         chat: Chat = list(),
+        host: Optional[str] = None,
         cleaner: Optional[Callable[[str], str]] = None,
     ) -> None:
         """
         Initializes the OpenAI LLM client.
 
         Parameters:
-        - host (Optional[str]): The host URL for the OpenAI server. If None, defaults are used.
         - api_key (str): The API key used to authenticate requests to the OpenAI server.
         - model (str): The name of the model to use (e.g., "llama3").
         - chat (Chat, optional): Initial list of messages to include in the chat history. Defaults to an empty list.
+        - host (Optional[str]): The host URL for the OpenAI server. If None, defaults are used.
         - cleaner (Optional[Callable[[str], str]]): A function to post-process the model's response.
         """
 

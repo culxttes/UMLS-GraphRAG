@@ -19,9 +19,9 @@ class Ollama(LLM):
 
     def __init__(
         self,
-        host: Optional[str],
         model: str,
         chat: Chat = list(),
+        host: Optional[str] = None,
         cleaner: Optional[Callable[[str], str]] = None,
         **kwargs,
     ) -> None:
@@ -29,9 +29,9 @@ class Ollama(LLM):
         Initializes the Ollama LLM client.
 
         Parameters:
-        - host (Optional[str]): The host URL for the Ollama server. If None, defaults are used.
         - model (str): The name of the model to use (e.g., "llama3").
         - chat (Chat, optional): Initial list of messages to include in the chat history. Defaults to an empty list.
+        - host (Optional[str]): The host URL for the Ollama server. If None, defaults are used.
         - cleaner (Optional[Callable[[str], str]]): A function to post-process the model's response.
         - **kwargs: Additional keyword arguments passed to the Ollama client.
         """
