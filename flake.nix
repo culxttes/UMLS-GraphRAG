@@ -27,7 +27,6 @@
               ps: with ps; [
                 neo4j
                 ollama
-                typing
                 python-dotenv
               ]
             ))
