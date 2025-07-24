@@ -3,7 +3,7 @@
 This project implements a **Graph-RAG** (Retrieval-Augmented Generation using Graphs) pipeline based on the **UMLS** (Unified Medical Language System) knowledge graph.
 
 The graph used here is extracted from the dataset published in the following paper:
-📎 [GraphRAG for UMLS - Zenodo](https://zenodo.org/records/10911980)
+📎 [BioPropaPhen and BioPropaPhenKG - Zenodo](https://zenodo.org/records/10911980)
 
 ---
 
