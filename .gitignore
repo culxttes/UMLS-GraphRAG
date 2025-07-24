@@ -1,0 +1,9 @@
+data/
+logs/
+ssl/
+
+.env
+
+.ruff_cache/
+.mypy_cache/
+__pycache__/
