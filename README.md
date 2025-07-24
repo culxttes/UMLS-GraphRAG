@@ -29,7 +29,7 @@ Graph-RAG is a method of retrieving information from a **knowledge graph** to au
 
 ```
 .
-├── data/                      # Neo4j database files (after setup)
+├── data/                     # Neo4j database files (after setup)
 ├── docker-compose.yml        # Docker service for Neo4j
 ├── flake.nix / flake.lock    # Nix environment definitions
 ├── logs/                     # Neo4j logs
