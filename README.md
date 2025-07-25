@@ -1,6 +1,7 @@
 # UMLS-GraphRAG
 
-This project implements a **Graph-RAG** (Retrieval-Augmented Generation using Graphs) pipeline based on the **UMLS** (Unified Medical Language System) knowledge graph.
+This project aims to create **Graphygie**, a Python library designed to simplify the creation of **GraphRAG** pipelines.  
+It was developed as part of the [KGConversationalAI project](https://github.com/Gabriel382/KGConversationalAI), which focuses on assisting doctors by creating a **3D assistant** capable of answering their medical questions.
 
 The graph used here is extracted from the dataset published in the following paper:
 📎 [BioPropaPhen and BioPropaPhenKG - Zenodo](https://zenodo.org/records/10911980)
@@ -35,10 +36,13 @@ Graph-RAG is a method of retrieving information from a **knowledge graph** to au
 ├── logs/                     # Neo4j logs
 ├── setup.sh                  # Script to download, load and migrate Neo4j dump
 ├── src/                      # Main source code (GraphRAG implementation)
+│   ├── graphygie/            # Core Graphygie library
+│   │   ├── generation/       # Response generation (BasicGenerator uses retriever + LLM)
+│   │   ├── llm/              # LLM integrations (OpenAI, Ollama, etc.)
+│   │   └── retrieval/        # Graph and database retrieval logic
 │   ├── main.py               # Entry point
-│   ├── retrieval/            # LLM, graph traversal, and database layers
-│   ├── util/                 # Utility functions
-│   └── resources/prompt/     # Prompt templates
+│   ├── resources/prompt/     # Prompt templates
+│   └── util/                 # Utility functions
 └── README.md                 # You're here!
 ```
 
@@ -100,6 +104,7 @@ python main.py
 ## ❗ Important Notes
 
 * **No tests** are currently included.
+* Graphygie is intended to be extended for projects like **KGConversationalAI**.
 * This project does **not** currently use vector stores — all context is retrieved from the graph.
 * Make sure the Neo4j container is running before executing Python code.
 

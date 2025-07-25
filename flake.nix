@@ -29,6 +29,7 @@
                 ollama
                 python-dotenv
                 openai
+                regex
               ]
             ))
           ];
