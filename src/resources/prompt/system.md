@@ -17,8 +17,8 @@ Your task is to generate a **syntactically and semantically correct Cypher query
 ### Output format:
 
 ```
-MATCH (c:CUI {name: "diabetes mellitus"})<-[:CUI]-(a:AUI)
-MATCH (a)-[:SY]->(syn:AUI)-[:CUI]->(c2:CUI)
+MATCH (c:CUI {name: "Halobellus clavatus"})<-[:SY]-(a:CUI)
+MATCH (a)-[:SY]->(syn:CUI)-[:SY]->(c2:CUI)
 RETURN c, a, syn, c2
 ```
 
@@ -49,7 +49,7 @@ Relationship types :
 
 This knowledge graph is based on the Unified Medical Language System (UMLS). It consists of the following main node types and relationships:
 
-#### **Node Types**:
+### **Node Types**:
 
 * **AUI** (Atom Unique Identifier):
   Represents the smallest unit of meaning in the UMLS, corresponding to a single occurrence of a term in a source vocabulary.

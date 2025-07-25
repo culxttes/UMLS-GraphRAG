@@ -28,7 +28,7 @@ def main() -> None:
         model="mistral:7b",
         chat=[
             Message(
-                role="system", content=read_to_string("./resources/prompt/system.txt")
+                role="system", content=read_to_string("./resources/prompt/system.md")
             )
         ],
         cleaner=lambda s: s[5:-4],  # Simple trimming of response content
@@ -38,7 +38,7 @@ def main() -> None:
     retrieval: LLM = Graph(llm, database)
 
     # Load the user prompt template from a file
-    base = read_to_string("./resources/prompt/user.txt")
+    base = read_to_string("./resources/prompt/user.md")
 
     # Send the user query to the retriever:
     # - The LLM generates a Cypher query from the user's message
