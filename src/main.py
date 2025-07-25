@@ -1,6 +1,6 @@
-from retrieval import Graph
-from retrieval.database import Neo4j, Database
-from retrieval.llm import LLM, Ollama, Message
+from graphygie.retrieval import Graph
+from graphygie.retrieval.database import Neo4j, Database
+from graphygie.llm import LLM, Ollama, Message
 from util import read_to_string, unwrap, user_prompt
 
 from dotenv import load_dotenv

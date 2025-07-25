@@ -5,8 +5,8 @@ and a graph database to answer chat-based queries.
 The LLM generates a query from the chat history, which is then executed on the database.
 """
 
-from .llm import LLM
-from .llm.chat import Chat
+from graphygie.llm import LLM
+from graphygie.llm.chat import Chat
 from .database import Database
 
 
