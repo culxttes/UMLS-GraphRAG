@@ -41,7 +41,6 @@ class Neo4j(Database):
 
             node_labels: dict = {}
             for node in graph.nodes:
-                print("[DEBUG] graph.node", node)
                 name = node.get("name") or node.get("title") or f"Node_{node.id}"
                 node_labels[node.id] = name
 
@@ -50,7 +49,7 @@ class Neo4j(Database):
                 start = node_labels[rel.start_node.id]
                 end = node_labels[rel.end_node.id]
                 rel_type = rel.type
-                textual_rels.append(f"{start} {rel_type.lower()} {end}.")
+                textual_rels.append(f"{start} -[{rel_type}]-> {end}.")
 
             return "\n".join(textual_rels)
 
