@@ -1,3 +1,19 @@
+"""
+Main entry point for the Graphygie pipeline.
+
+This script initializes the retrieval and generation components of the system,
+connecting a Neo4j database with language models (Ollama) to handle user queries.
+The process follows these steps:
+
+1. Load environment variables for database and LLM configuration.
+2. Initialize the Neo4j database connection.
+3. Initialize an Ollama-based LLM to act as a retriever (query generation).
+4. Wrap the retriever in a Graph-based retriever that queries Neo4j.
+5. Initialize another Ollama-based LLM to act as a generator (final response).
+6. Combine the retriever and generator in a BasicGenerator pipeline.
+7. Format the user prompt and generate the final response.
+"""
+
 from graphygie.retrieval import Graph
 from graphygie.retrieval.database import Neo4j, Database
 from graphygie.llm import LLM, Ollama, Message
@@ -56,6 +72,11 @@ def main() -> None:
     # Load the user prompt template from a file
     base = read_to_string("./resources/prompt/user.md")
 
+    # RAG Orchestrator
+    # - Provides information retrieval
+    # - Provides a generation LLM
+    # - Starts with a system prompt loaded from a file
+    # - Applies a custom maker function to generate final system prompt
     generator: LLM = BasicGenerator(
         retriever=retrieval,
         generator=generator_llm,
@@ -68,6 +89,7 @@ def main() -> None:
         maker=generator_system_prompt,
     )
 
+    # Launch of the RAG pipeline
     result = generator.chat(
         chat=[
             Message(
