@@ -51,7 +51,7 @@ def main() -> None:
                 content=user_prompt(
                     base,
                     intent="Information request",
-                    request="What are the symptoms of asthma?",
+                    request="What are the main cognitive and behavioral changes associated with Frontal Lobe Syndrome?",
                 ),
             )
         ]

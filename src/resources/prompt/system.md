@@ -17,9 +17,9 @@ Your task is to generate a **syntactically and semantically correct Cypher query
 ### Output format:
 
 ```
-MATCH (c:CUI {name: "Halobellus clavatus"})<-[:SY]-(a:CUI)
-MATCH (a)-[:SY]->(syn:CUI)-[:SY]->(c2:CUI)
-RETURN c, a, syn, c2
+MATCH (c1:CUI {name: "Halobellus clavatus"})<-[r1:PAR|CHD]-(c2:CUI)
+MATCH (c2)-[r2:PAR|CHD]->(c3:CUI)-[r3:PAR|CHD]->(c4:CUI)
+RETURN c1, c2, c3, c4, r1, r2, r3
 ```
 
 Do not include explanations or additional text—**output only the Cypher query**.
@@ -35,8 +35,8 @@ Node types :
 
 Relationship types :
 ```
-- CHD(AUI -> AUI)
-- PAR(AUI -> AUI)
+- CHD(AUI|CUI -> AUI|CUI)
+- PAR(AUI|CUI -> AUI|CUI)
 - SY(AUI -> AUI)
 - RB(AUI -> AUI)
 - RQ(AUI -> AUI)
@@ -81,7 +81,7 @@ This knowledge graph is based on the Unified Medical Language System (UMLS). It 
 #### **Relationship Types**:
 
 * **CHD / PAR**:
-  "Child" and "Parent" hierarchical relationships between AUI terms.
+  "Child" and "Parent" hierarchical relationships between AUI terms or CUI.
 
 * **SY / RB / RN / RQ / RO**:
   Lexical and semantic relationships between AUIs or CUIs.
