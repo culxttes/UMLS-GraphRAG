@@ -28,6 +28,7 @@
                 neo4j
                 ollama
                 python-dotenv
+                openai
               ]
             ))
           ];
